@@ -12,6 +12,7 @@ export class EmailLambdaCdkStack extends cdk.Stack {
     super(scope, id, props);
 
     const templateBucket = new s3.Bucket(this, 'EmailTemplateBucket', {
+      bucketName: 'vcanteen-email-templates-bucket',
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
