@@ -38,10 +38,14 @@ For adding new template:
 Steps of new template: 
 
 /templates/welcome-user.html
+cdk deploy EmailLambdaCdkStack-dev -> for push/build stack
 
+ cdk deploy --all --context env=dev
+
+ 
 RUN this comand for deploy template in s3:
 
-cdk deploy TemplateDeployStack
+cdk deploy TemplateDeployStack-dev
 
 
 To send mail from any service:
