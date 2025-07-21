@@ -2,9 +2,10 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
-
+import * as path from 'path';
 export interface TemplateDeployProps extends cdk.StackProps {
   bucketName: string;
+  envName: string
 }
 
 export class TemplateDeployStack extends cdk.Stack {
@@ -19,7 +20,8 @@ export class TemplateDeployStack extends cdk.Stack {
 
     new s3deploy.BucketDeployment(this, 'DeployNewTemplates', {
       destinationBucket: templateBucket,
-      sources: [s3deploy.Source.asset('./templates')],
+      sources: [s3deploy.Source.asset(path.join(__dirname, `../templates/${props.envName}`))],
+      destinationKeyPrefix: `templates`,
     });
   }
 }

@@ -10,8 +10,14 @@ export class EmailClient {
   }
 
   async sendEmail(to: string, subject: string, htmlBody: string) {
+
+    console.log('Sending email with the following details:');
+  console.log('From:', 'anandu.avaj@gmail.com');
+  console.log('To:', to);
+  console.log('Subject:', subject);
+  console.log('HTML Body Length:', htmlBody?.length || 0);
     const command = new SendEmailCommand({
-      Source: this.sender,
+      Source: 'anandu.avaj@gmail.com',
       Destination: { ToAddresses: [to] },
       Message: {
         Subject: { Data: subject },

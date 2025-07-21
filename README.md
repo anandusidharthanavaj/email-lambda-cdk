@@ -54,7 +54,7 @@ import this in file: import * as AWS from 'aws-sdk';
 
 
 sample code:
-const lambda = new AWS.Lambda({ region: 'ap-south-2' });
+const lambda = new AWS.Lambda({ region: 'ap-south-1' });
 
 const response1 = await lambda.invoke({
   FunctionName: 'email-sender-lambda',
